@@ -1,3 +1,10 @@
+<%-- 
+    Document   : index
+    Created on : Nov 24, 2023, 7:42:54 PM
+    Author     : brayan
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>

@@ -30,7 +30,7 @@ public class ServletController extends HttpServlet {
             httpSession.setAttribute("rectangle", rectangle);
             
             // 4. Redirect to the selected view.
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/deployVariables.jsp");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/deployVariables.jsp");
             requestDispatcher.forward(request, response);
         } catch (ServletException ex) {
             Logger.getLogger(ServletController.class.getName()).log(Level.SEVERE, null, ex);
