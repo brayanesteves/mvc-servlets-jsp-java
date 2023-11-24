@@ -14,5 +14,17 @@
     <body>
         <h1>Deploy Variables</h1>
         Request scope variables: ${message}
+        <br />
+        Variable scope session
+        <br />
+        Rectangle:
+        <br />
+        Base: ${rectangle.base}
+        <br />
+        Hight: ${rectangle.hight}
+        <br />
+        Area: ${rectangle.area}
+        <br />
+        <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
     </body>
 </html>

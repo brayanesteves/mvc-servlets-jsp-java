@@ -28,4 +28,7 @@ public class Rectangle {
         this.hight = hight;
     }    
     
+    public int getArea() {
+        return this.base * this.hight;
+    }
 }
