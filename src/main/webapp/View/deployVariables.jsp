@@ -15,6 +15,8 @@
         <h1>Deploy Variables</h1>
         Request scope variables: ${message}
         <br />
+        Request scope variables: ${messageAction}
+        <br />
         Variable scope session
         <br />
         Rectangle:

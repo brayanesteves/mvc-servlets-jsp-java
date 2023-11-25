@@ -20,6 +20,7 @@ public class ServletController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         try {
             HttpSession httpSession = request.getSession();
+            RequestDispatcher requestDispatcher = null;
             // 1. We process parameters.
             String action = request.getParameter("action");
             
@@ -33,6 +34,7 @@ public class ServletController extends HttpServlet {
             request.setAttribute("message", "Greetings from the Servlet..");
             // Review action.
             if("addVariables".equals(action)) {
+                
                 // Scope request.
                 request.setAttribute("rectangleRequest", rectangleRequest);
                 // Scope session.
@@ -42,11 +44,24 @@ public class ServletController extends HttpServlet {
                 application.setAttribute("rectangleApplication", rectangleApplication);
                 // Add message.
                 request.setAttribute("messageAction", "The variables add successful.");
-            }            
-            
+                
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+                
+            } else if("listVariables".equals(action)) {
+                // 4. Redirect to the selected view.
+                request.getRequestDispatcher("WEB-INF/scopeVariables.jsp").forward(request, response);
+            } else {
+                // 4. Redirect to the selected view.
+                request.setAttribute("messageAction", "Action unknown.");
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
+            /**
+             * @Warning
+             * Not use.
+             */
             // 4. Redirect to the selected view.
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/deployVariables.jsp");
-            requestDispatcher.forward(request, response);
+            //requestDispatcher = request.getRequestDispatcher("View/deployVariables.jsp");
+            //requestDispatcher.forward(request, response);
         } catch (ServletException ex) {
             Logger.getLogger(ServletController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
