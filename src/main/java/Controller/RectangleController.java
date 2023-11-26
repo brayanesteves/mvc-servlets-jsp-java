@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/ServletController")
-public class ServletController extends HttpServlet {
+@WebServlet("/RectangleController")
+public class RectangleController extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
@@ -45,7 +45,7 @@ public class ServletController extends HttpServlet {
                 // Add message.
                 request.setAttribute("messageAction", "The variables add successful.");
                 
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.getRequestDispatcher("rectangle.jsp").forward(request, response);
                 
             } else if("listVariables".equals(action)) {
                 // 4. Redirect to the selected view.
@@ -53,7 +53,7 @@ public class ServletController extends HttpServlet {
             } else {
                 // 4. Redirect to the selected view.
                 request.setAttribute("messageAction", "Action unknown.");
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.getRequestDispatcher("rectangle.jsp").forward(request, response);
             }
             /**
              * @Warning
@@ -63,9 +63,9 @@ public class ServletController extends HttpServlet {
             //requestDispatcher = request.getRequestDispatcher("View/deployVariables.jsp");
             //requestDispatcher.forward(request, response);
         } catch (ServletException ex) {
-            Logger.getLogger(ServletController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RectangleController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(ServletController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RectangleController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

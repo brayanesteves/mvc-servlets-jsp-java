@@ -13,11 +13,5 @@
     </head>
     <body>
         <h1>Structure MVC</h1>
-        <br />
-        <a href="${pageContext.request.contextPath}/ServletController">Link to Servlet controller deploy variables.</a>
-        <br />
-        <a href="${pageContext.request.contextPath}/ServletController?action=addVariables">Add</a>
-        <br />
-        <a href="${pageContext.request.contextPath}/ServletController?action=listVariables">List</a>
     </body>
 </html>

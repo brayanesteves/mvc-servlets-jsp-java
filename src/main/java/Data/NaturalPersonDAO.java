@@ -25,7 +25,7 @@ public class NaturalPersonDAO {
     private static final String SQL_DELETE_BY_REFERENCE                               = "DELETE FROM `0_NtrlPrsn` WHERE `Rfrnc` = ?;";
     private static final String SQL_DELETE_BY_IDENTIFICATION_DOCUMENT                 = "DELETE FROM `0_NtrlPrsn` WHERE `IdntfctnDcmnt` = ?;";
     
-    private List<NaturalPerson> list() {
+    public List<NaturalPerson> list() {
         
         java.sql.Connection connection      = null;
         PreparedStatement preparedStatement = null;

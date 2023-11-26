@@ -20,7 +20,7 @@ public class PersonDAO {
     private static final String SQL_UPDATE_SIMULATE_DELETE_BY_REFERENCE = "UPDATE `0_Prsn` SET `Rmvd` = ? WHERE `Rfrnc` = ?;";
     private static final String SQL_DELETE_BY_REFERENCE                 = "DELETE FROM `0_Prsn` WHERE `Rfrnc` = ?;";
     
-    private List<Person> list() {
+    public List<Person> list() {
         
         java.sql.Connection connection      = null;
         PreparedStatement preparedStatement = null;

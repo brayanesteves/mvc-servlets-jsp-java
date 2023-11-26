@@ -27,6 +27,6 @@
         <br />
         Area: ${rectangle.area}
         <br />
-        <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
+        <a href="${pageContext.request.contextPath}/rectangle.jsp">Home</a>
     </body>
 </html>
