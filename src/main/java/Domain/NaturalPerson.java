@@ -30,10 +30,25 @@ public class NaturalPerson {
         this.reference = reference;
         this.referenceNacionality = referenceNacionality;
         this.referenceCountry = referenceCountry;
-    }    
-        
+    }
+    
     public NaturalPerson(int reference, int referenceNacionality, int referenceCountry, String identificationDocument, String names, String surnames, String referentialPhoneNumber, String taxAddress, int condition, int removed, int locked, Date dateAdmission, Time checkTime) {
         this.reference = reference;
+        this.referenceNacionality = referenceNacionality;
+        this.referenceCountry = referenceCountry;
+        this.identificationDocument = identificationDocument;
+        this.names = names;
+        this.surnames = surnames;
+        this.referentialPhoneNumber = referentialPhoneNumber;
+        this.taxAddress = taxAddress;
+        this.condition = condition;
+        this.removed = removed;
+        this.locked = locked;
+        this.dateAdmission = dateAdmission;
+        this.checkTime = checkTime;
+    }
+
+    public NaturalPerson(int referenceNacionality, int referenceCountry, String identificationDocument, String names, String surnames, String referentialPhoneNumber, String taxAddress, int condition, int removed, int locked, Date dateAdmission, Time checkTime) {
         this.referenceNacionality = referenceNacionality;
         this.referenceCountry = referenceCountry;
         this.identificationDocument = identificationDocument;
