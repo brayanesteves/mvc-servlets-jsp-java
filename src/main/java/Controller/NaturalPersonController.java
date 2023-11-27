@@ -22,7 +22,21 @@ public class NaturalPersonController extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-        this.actionDefault(request, response);
+        
+        String action = request.getParameter("action");
+        if(action != null) {
+            switch (action) {
+                
+                case "edit":
+                    this.edit(request, response);
+                    break;
+                default:
+                    this.actionDefault(request, response);
+                    
+            }
+        } else {
+            this.actionDefault(request, response);
+        }
     }
     
     private void actionDefault(HttpServletRequest request, HttpServletResponse response) {
@@ -104,5 +118,35 @@ public class NaturalPersonController extends HttpServlet {
         } catch (ParseException ex) {
             Logger.getLogger(NaturalPersonController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private void edit(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+            
+            int reference               = Integer.parseInt(request.getParameter("reference"));
+            
+            NaturalPerson naturalPerson = new NaturalPersonDAO().findByReference(new NaturalPerson(reference));
+            
+            request.setAttribute("naturalPerson", naturalPerson.getReferenceNacionality());
+            
+            // request.setAttribute("referenceNacionality", naturalPerson.getReferenceNacionality());
+            // request.setAttribute("referenceCountry", naturalPerson.getReferenceCountry());
+            // request.setAttribute("identificationDocument", naturalPerson.getIdentificationDocument());
+            // request.setAttribute("names", naturalPerson.getNames());
+            // request.setAttribute("surnames", naturalPerson.getSurnames());
+            // request.setAttribute("referentialPhoneNumber", naturalPerson.getReferentialPhoneNumber());
+            // request.setAttribute("taxAddress", naturalPerson.getTaxAddress());
+            
+            String jspEdit = "/WEB-INF/pages/naturalperson/editNaturalPerson.jsp";
+            
+            request.getRequestDispatcher(jspEdit).forward(request, response);
+            
+        } catch (ServletException ex) {
+            Logger.getLogger(NaturalPersonController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(NaturalPersonController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 }
