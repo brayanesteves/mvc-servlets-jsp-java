@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#naturalpersonModal"><i class="fas fa-plus">Add</i></a>
+                <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addNaturalPersonModal"><i class="fas fa-plus">Add</i></a>
             </div>
         </div>
     </div>

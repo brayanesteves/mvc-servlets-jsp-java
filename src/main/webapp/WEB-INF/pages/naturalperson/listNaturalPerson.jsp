@@ -86,3 +86,5 @@
         
     </div>    
 </section>
+                    
+<jsp:include page="/WEB-INF/pages/naturalperson/addNaturalPerson.jsp" />
