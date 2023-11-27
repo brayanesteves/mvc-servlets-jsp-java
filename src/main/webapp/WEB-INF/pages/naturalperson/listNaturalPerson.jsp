@@ -36,9 +36,9 @@
                     </thead>
                     
                     <tbody>
-                        <naturalperson:forEach var="naturalPersons" items="${naturalpersons}">
+                        <naturalperson:forEach var="naturalPersons" items="${naturalpersons}" varStatus="status">
                             <tr>
-                                <td></td>
+                                <td>${status.count}</td>
                                 <td>${naturalPersons.referenceNacionality}</td>
                                 <td>${naturalPersons.referenceCountry}</td>
                                 <td>${naturalPersons.identificationDocument}</td>
