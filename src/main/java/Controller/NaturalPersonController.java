@@ -21,6 +21,8 @@ public class NaturalPersonController extends HttpServlet {
         try {
             List<NaturalPerson> listNaturalPersons = new NaturalPersonDAO().list();
             request.setAttribute("naturalPersons", listNaturalPersons);
+            request.setAttribute("naturalPersonsTotal", listNaturalPersons.size());
+            request.setAttribute("naturalPersonsRemoved", this.sumNaturalPersonsRemoved(listNaturalPersons));
             request.getRequestDispatcher("naturalPersons.jsp").forward(request, response);
         } catch (ServletException ex) {
             Logger.getLogger(NaturalPersonController.class.getName()).log(Level.SEVERE, null, ex);
@@ -28,5 +30,15 @@ public class NaturalPersonController extends HttpServlet {
             Logger.getLogger(NaturalPersonController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }
+    
+    private int sumNaturalPersonsRemoved(List<NaturalPerson> listNaturalPersons) {
+        int total = 0;
+        for(NaturalPerson naturalPerson : listNaturalPersons) {
+            if(naturalPerson.getRemoved() == 1) {
+                total++;
+            }
+        }        
+        return total;
     }
 }

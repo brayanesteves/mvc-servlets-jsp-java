@@ -6,6 +6,7 @@
     <div class="container">
         
         <div class="row">
+            
             <div class="col-md-9">
                 
                 <div class="card">
@@ -63,6 +64,25 @@
                 
             </div>
             
+            <div class="col-md-3">
+            
+                <div class="card text-center bg-danger text-white mb-3">
+                    <div class="card-body">
+                        <h3 class="">Natural Person Removed</h3>
+                        <h4 class="display-4">${naturalPersonsRemoved}</h4>
+                    </div>
+                </div>
+                    
+                <div class="card text-center bg-success text-white mb-3">
+                    <div class="card-body">
+                        <h3 class="">Natural Person Total Add</h3>
+                        <h4 class="display-4"><i class="fas fa-users"></i> ${naturalPersonsTotal}</h4>
+                    </div>
+                </div>
+                
+            </div>
+            
         </div>
+        
     </div>    
 </section>
