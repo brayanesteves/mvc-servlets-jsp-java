@@ -11,6 +11,9 @@
     <body>
         
         <jsp:include page="WEB-INF/pages/commons/header.jsp" />
+        
+        <jsp:include page="View/naturalPersons.jsp" />
+        
         <jsp:include page="WEB-INF/pages/commons/scripts.jsp" />
         
     </body>
