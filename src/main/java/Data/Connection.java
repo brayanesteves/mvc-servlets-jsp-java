@@ -14,33 +14,37 @@ public class Connection {
     private static final String JDBC_PASSWORD_LOCAL = "1234";
     // <.CONNECTION: LOCAL>
     
+    private static BasicDataSource basicDataSource;
     
     public static DataSource getDataSource(int activate, int enviroment) {
-        BasicDataSource basicDataSource = new BasicDataSource();
-        switch (activate) {
-            case 0:                
-                break;
-             
-            case 1:
-                switch (enviroment) {
-                    // <LOCAL>
-                    case 0:                        
-                        basicDataSource.setUrl(JDBC_URL_LOCAL);
-                        basicDataSource.setUsername(JDBC_USER_LOCAL);
-                        basicDataSource.setPassword(JDBC_PASSWORD_LOCAL);
-                        basicDataSource.setInitialSize(50);
-                        break;
-                    // <.LOCAL>
-                    default:
-                        throw new AssertionError();
-                }
-                break;
-                
-            default:
-                throw new AssertionError();
-        }
+        if(basicDataSource == null) {
+            basicDataSource = new BasicDataSource();
+            switch (activate) {
+                case 0:                
+                    break;
+
+                case 1:
+                    switch (enviroment) {
+                        // <LOCAL>
+                        case 0:                        
+                            basicDataSource.setUrl(JDBC_URL_LOCAL);
+                            basicDataSource.setUsername(JDBC_USER_LOCAL);
+                            basicDataSource.setPassword(JDBC_PASSWORD_LOCAL);
+                            basicDataSource.setInitialSize(50);
+                            break;
+                        // <.LOCAL>
+                        default:
+                            throw new AssertionError();
+                    }
+                    break;
+
+                default:
+                    throw new AssertionError();
+            }
         
+        }
         return basicDataSource;
+        
     }
     
     // TODO: Fix
