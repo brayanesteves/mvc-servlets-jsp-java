@@ -12,7 +12,7 @@
 
 
 
-        <form action="${pageContext.request.contextPath}/NaturalPersonController?action=edit&reference=${naturalPerson.reference}" method="POST" class="was-validated">
+        <form action="${pageContext.request.contextPath}/NaturalPersonController?action=update&reference=${naturalPerson.reference}" method="POST" class="was-validated">
 
             <jsp:include page="/WEB-INF/pages/commons/buttonNavigationEdit.jsp" />
 
