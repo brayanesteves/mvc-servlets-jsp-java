@@ -13,6 +13,13 @@
                     <i class="fas fa-check"></i> Update
                 </button>
             </div>
+            
+            <div class="col-md-3">
+                <a href="${pageContext.request.contextPath}/NaturalPersonController?action=delete&reference=${naturalPerson.reference}" class="btn btn-danger btn-block">
+                    <i class="fas fa-trash"></i> Delete
+                </a>
+            </div>
+            
         </div>
         
     </div>

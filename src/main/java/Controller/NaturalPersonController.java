@@ -30,6 +30,11 @@ public class NaturalPersonController extends HttpServlet {
                 case "edit":
                     this.edit(request, response);
                     break;
+                    
+                case "delete":
+                    this.delete(request, response);
+                    break;
+                    
                 default:
                     this.actionDefault(request, response);
                     
@@ -179,6 +184,36 @@ public class NaturalPersonController extends HttpServlet {
             // We update the (Model) object.
             NaturalPerson naturalPerson = new NaturalPerson(reference, Integer.parseInt(referenceNacionality), Integer.parseInt(referenceCountry), identificationDocument, names, surnames, referentialPhoneNumber, taxAddress, 1, 0, 0, dateAdmission, checkTime);
             int modifiedRecords = new NaturalPersonDAO().updateEspecificFieldsByReference(naturalPerson);
+            this.actionDefault(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(NaturalPersonController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void delete(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            Date date = new Date();
+            // Retrieve form field values.
+            int reference                 = Integer.parseInt(request.getParameter("reference"));
+            String referenceNacionality   = request.getParameter("referenceNacionality");
+            String referenceCountry       = request.getParameter("referenceCountry");
+            String identificationDocument = request.getParameter("identificationDocument");
+            String names                  = request.getParameter("names");
+            String surnames               = request.getParameter("surnames");
+            String referentialPhoneNumber = request.getParameter("referentialPhoneNumber");
+            String taxAddress             = request.getParameter("taxAddress");
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            
+            String currentDate = sdf.format(date);
+            Date dateAdmission = new SimpleDateFormat("yyyy-MM-dd").parse(currentDate);
+            int hour = date.getHours();
+            Time checkTime = new Time(hour / 100, // Hours
+                    hour % 100 / 60, // Minutes
+                    hour % 100 % 60); // Seconds
+            // We update the (Model) object.
+            NaturalPerson naturalPerson = new NaturalPerson(reference, Integer.parseInt(referenceNacionality), Integer.parseInt(referenceCountry), identificationDocument, names, surnames, referentialPhoneNumber, taxAddress, 1, 0, 0, dateAdmission, checkTime);
+            int modifiedRecords = new NaturalPersonDAO().updateSimulateDeleteByReference(naturalPerson);
             this.actionDefault(request, response);
         } catch (ParseException ex) {
             Logger.getLogger(NaturalPersonController.class.getName()).log(Level.SEVERE, null, ex);
